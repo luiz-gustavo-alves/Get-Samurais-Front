@@ -7,6 +7,7 @@ import healthIcon from "./healthIcon.svg";
 import carIcon from "./carIcon.svg";
 import houseIcon from "./houseIcon.svg";
 import peopleIcon from "./peopleIcon.svg";
+import samuraiIcon from "./samuraiIcon.svg";
 
 export {
     programmingIcon,
@@ -17,5 +18,6 @@ export {
     healthIcon,
     carIcon,
     houseIcon,
-    peopleIcon
+    peopleIcon,
+    samuraiIcon
 }
