@@ -4,7 +4,7 @@ const Container = styled.div`
 
     height: auto;
     gap: 15px;
-    padding: 40px 80px;
+    padding: 30px 80px;
     background-color: black;
 `;
 
@@ -94,17 +94,18 @@ const IconBorder = styled.div`
 const ProfileOptions = styled.div`
 
     width: 150px;
-    height: auto;
+    height: 150px;
     position: fixed;
     background-color: #000;
     border: 2px solid #F4F4F4;
-    top: 131px;
+    top: 110px;
     right: 34px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
+    justify-content: center;
 `;
 
 const Option = styled.h3`

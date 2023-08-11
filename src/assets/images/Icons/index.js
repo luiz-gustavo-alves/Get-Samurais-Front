@@ -6,9 +6,10 @@ import handshakeIcon from "./handshakeIcon.svg";
 import healthIcon from "./healthIcon.svg";
 import carIcon from "./carIcon.svg";
 import houseIcon from "./houseIcon.svg";
-import peopleIcon from "./peopleIcon.svg";
+import gearsIcon from "./gearsIcon.svg";
 import samuraiIcon from "./samuraiIcon.svg";
 import bambooHatIcon from "./bambooHatIcon.svg";
+import globeIcon from "./globeIcon.svg";
 
 export {
     programmingIcon,
@@ -19,7 +20,8 @@ export {
     healthIcon,
     carIcon,
     houseIcon,
-    peopleIcon,
+    gearsIcon,
     samuraiIcon,
-    bambooHatIcon
+    bambooHatIcon,
+    globeIcon
 }
