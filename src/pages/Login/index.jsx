@@ -11,14 +11,14 @@ import {
   Title
 } from "./style";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import authService from "../../services/auth.service";
 
 export default function Login() {
 
-  const { login } = useAuth();
+  const { auth, login } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -49,6 +49,13 @@ export default function Login() {
         }
       });
   }
+
+  useEffect(() => {
+    const isAuth = (Object.keys(auth).length) > 0 ? true : false;
+    if (isAuth) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <Container>

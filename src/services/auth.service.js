@@ -13,10 +13,10 @@ function signIn (payload) {
     return API.post("/signin", payload);
 }
 
-function logout (token) {
+function logout (payload, token) {
 
     const config = createConfig(token);
-    return API.post("/logout", "", config);
+    return API.post("/logout", payload, config);
 }
 
 const authService = {

@@ -3,9 +3,14 @@ import RegisterChoice from "./RegisterChoice";
 import UserRegister from "./UserRegister";
 import ServiceProviderRegister from "./ServiceProviderRegister";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 export default function Register() {
+
+  const { auth } = useAuth();
+  const navigate = useNavigate();
 
   const [choice, setChoice] = useState(null);
 
@@ -21,6 +26,13 @@ export default function Register() {
       return <ServiceProviderRegister />
     }
   }
+
+  useEffect(() => {
+    const isAuth = (Object.keys(auth).length) > 0 ? true : false;
+    if (isAuth) {
+      navigate("/");
+    }
+  }, []);
 
   const registerPage = setRegisterPage();
   

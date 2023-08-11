@@ -59,6 +59,12 @@ const TopRightContent = styled.div`
         }
     }
 
+    img {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+    }
+
     .register {
 
         border: 2px solid #fff;
@@ -67,10 +73,60 @@ const TopRightContent = styled.div`
     }
 `;
 
+const IconBorder = styled.div`
+
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    padding: 3px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s;
+    position: relative;
+    
+    &:hover {
+        opacity: 0.7;
+    }
+`;
+
+const ProfileOptions = styled.div`
+
+    width: 150px;
+    height: auto;
+    position: fixed;
+    background-color: #000;
+    border: 2px solid #F4F4F4;
+    top: 131px;
+    right: 34px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+`;
+
+const Option = styled.h3`
+
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+        opacity: 0.7;
+    }
+`;
+
 
 export {
     Container,
     TopContent,
     TopLeftContent,
-    TopRightContent
+    TopRightContent,
+    IconBorder,
+    ProfileOptions,
+    Option
 }

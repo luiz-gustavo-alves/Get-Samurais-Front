@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import authService from "../services/auth.service";
 
 const AuthContext = createContext();
 
@@ -12,8 +13,18 @@ export function AuthProvider({ children }) {
     sessionStorage.setItem("auth", JSON.stringify(authData));
   }
 
+  const logout = () => {
+
+    authService.logout({type: auth.type}, auth.token)
+      .then(() => {
+        setAuth({});
+        sessionStorage.removeItem("auth");
+      })
+      .catch(() => alert("Erro interno do servidor.\nTente novamente mais tarde!"));
+  }
+
   return (
-    <AuthContext.Provider value={{ auth, login }}>
+    <AuthContext.Provider value={{ auth, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
