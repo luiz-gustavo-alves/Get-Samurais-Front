@@ -15,15 +15,18 @@ import {
 } from "./style";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import authService from "../../../services/auth.service";
 
 export default function ServiceProviderRegister() {
 
-  const [nextForm, setNextForm] = useState(false);
+  const navigate = useNavigate();
+
   const [userFormData, setUserFormData] = useState({
     name: "",
     email: "",
     password: "",
-    cellphone: ""
+    cellphoneNumber: ""
   });
 
   const [serviceProviderFormData, setServiceProviderFormData] = useState({
@@ -32,9 +35,11 @@ export default function ServiceProviderRegister() {
     UF: "AC",
     address: "",
     complement: ""
-  })
+  });
 
-  const [confirmPassword, setConfirmPassword] = useState("12345");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [nextForm, setNextForm] = useState(false);
+
   const UFs = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 
                'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO','RR', 'SC', 'SP', 'SE', 'TO'];
 
@@ -48,12 +53,28 @@ export default function ServiceProviderRegister() {
 
   function handleUserFormSubmit(e) {
     e.preventDefault();
+
+    if (userFormData.password !== confirmPassword) {
+      alert("Senhas fornecidas não coincidem!");
+      return;
+    }
+
     setNextForm(true);
   }
 
   function handleServiceProviderFormSubmit(e) {
     e.preventDefault();
-    console.log(serviceProviderFormData);
+    
+    const payload = {...userFormData, ...serviceProviderFormData};
+    authService.signUpServiceProvider(payload)
+      .then(() => navigate("/signin"))
+      .catch(err => {
+
+        if (err.response.status === 422) {
+          const errors = [...err.response.data];
+          alert(errors);
+        }
+      })
   }
 
   const setServiceProviderPage = () => {
@@ -105,8 +126,8 @@ export default function ServiceProviderRegister() {
             <Label>Celular</Label>
             <Input
               type="text"
-              name="cellphone"
-              value={userFormData.cellphone}
+              name="cellphoneNumber"
+              value={userFormData.cellphoneNumber}
               onChange={handleUserFormChange}
               minLength={11}
               maxLength={11}
@@ -125,6 +146,8 @@ export default function ServiceProviderRegister() {
             <Input
               type="text"
               name="CEP"
+              minLength={8}
+              maxLength={8}
               value={serviceProviderFormData.CEP}
               onChange={handleServiceProviderChange}
               required
@@ -170,7 +193,6 @@ export default function ServiceProviderRegister() {
               name="complement"
               value={serviceProviderFormData.complement}
               onChange={handleServiceProviderChange}
-              required
             />
           </Content>
           <Content>

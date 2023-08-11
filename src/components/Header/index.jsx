@@ -9,16 +9,11 @@ import {
   samuraiIcon
 } from "../../assets/images/Icons";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
 
   const navigate = useNavigate();
-  const location = useLocation();
-
-  if (location.pathname === "/signin" || location.pathname === "/signup") {
-    return;
-  }
 
   return (
     <Container>

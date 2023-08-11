@@ -12,8 +12,12 @@ import {
 } from "./style";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import authService from "../../../services/auth.service";
 
 export default function UserRegister() {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -29,6 +33,24 @@ export default function UserRegister() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (formData.password !== confirmPassword) {
+      alert("Senhas fornecidas não coincidem!");
+      return;
+    }
+
+    authService.signUpUser({...formData})
+      .then(() => navigate("/signin"))
+      .catch(err => {
+
+        if (err.request.status === 401) {
+          alert(err.response.data)
+        }
+
+        else if (err.request.status === 500) {
+          alert("Erro interno do servidor.\nTente novamente mais tarde!");
+        }
+      });
   }
 
   return (

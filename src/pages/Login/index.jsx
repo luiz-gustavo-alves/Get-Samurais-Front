@@ -12,8 +12,14 @@ import {
 } from "./style";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import authService from "../../services/auth.service";
 
 export default function Login() {
+
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -26,7 +32,22 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    
+    authService.signIn({...formData})
+      .then(res => {
+        login(res.data);
+        navigate("/");
+      })
+      .catch(err => {
+        
+        if (err.request.status === 404) {
+          alert(err.response.data)
+        }
+
+        else if (err.request.status === 500) {
+          alert("Erro interno do servidor.\nTente novamente mais tarde!");
+        }
+      });
   }
 
   return (

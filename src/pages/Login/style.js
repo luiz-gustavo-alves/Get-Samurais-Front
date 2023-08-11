@@ -9,7 +9,7 @@ const Form = styled.form`
     justify-content: space-around;
     width: 100%;
     height: 75%;
-    max-width: 900px;
+    max-width: 800px;
     border-radius: 40px;
     align-items: center;
     padding: 40px;
