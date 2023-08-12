@@ -31,7 +31,7 @@ export default function ServicePage() {
     serviceService.getServiceById(params.id)
       .then(res =>  {
 
-        if (res.data.length === 0 || res.data.available === "0") {
+        if (res.data.length === 0) {
           navigate("/");
           return;
         }

@@ -1,6 +1,7 @@
 import {
   Container,
   Element,
+  DetailsContainer,
   Details,
   LeftDetails,
   RightDetails,
@@ -57,25 +58,27 @@ export default function Content ({ servicesData, showOptions, setShowOptions }) 
 
   return (
     <>
-      <Container showUpdateOption={showUpdateOption}>
+      <Container showOption={showUpdateOption}>
         {servicesData.map(service => (
-          <Element key={service.id} onClick={() => navigate(`/service/${service.id}`)}>
+          <Element key={service.id} onClick={() => navigate(`/service/${service.id}`)} opacity={service.available}>
             <img src={service.imageURL} alt={service.title} title={service.title} />
-            <Details>
-              <LeftDetails>
-                <h2>{service.title}</h2>
-                <h3>R$ {service.price.toFixed(2)}</h3>
-              </LeftDetails>
-              <RightDetails>
-                <img src={iconsHashTable[service.role]} />
-              </RightDetails>
-            </Details>
-            {showOptions &&
-              <Options>
-                <img src={editIcon} onClick={(e) => handleEdit(e, service)} />
-                <img src={trashIcon} onClick={(e) => handleDelete(e, service.id)} />
-              </Options>
-            }
+            <DetailsContainer showOption={showOptions}>
+              <Details>
+                <LeftDetails>
+                  <h2>{service.title}</h2>
+                  <h3>R$ {service.price.toFixed(2)}</h3>
+                </LeftDetails>
+                <RightDetails>
+                  <img src={iconsHashTable[service.role]} />
+                </RightDetails>
+              </Details>
+              {showOptions &&
+                <Options>
+                  <img src={editIcon} onClick={(e) => handleEdit(e, service)} />
+                  <img src={trashIcon} onClick={(e) => handleDelete(e, service.id)} />
+                </Options>
+              }
+            </DetailsContainer>
           </Element>
         ))}
       </Container>

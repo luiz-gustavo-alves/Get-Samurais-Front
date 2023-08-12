@@ -57,7 +57,7 @@ export default function ServiceProviderPage() {
         <Content 
           servicesData={serviceProviderData} 
           showOptions={true} 
-          setShowOptions={setShowOptions} 
+          setShowOptions={setShowOptions}
         />
       </Container>
       {showAddOption &&

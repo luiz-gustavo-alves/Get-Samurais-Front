@@ -135,9 +135,9 @@ const InfoContainer = styled.div`
 
 const OptionsContainer = styled.div`
 
+    padding: 20px 0;
     display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
+    justify-content: center;
 `;
 
 const OptionButton = styled.button`

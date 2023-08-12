@@ -177,7 +177,7 @@ export default function ServiceOption({ option, serviceData, setShowOption, setO
         />
       </Content>
       <ButtonContainer>
-        <Button type="button" onClick={() => setShowOption(false)}>Sair</Button>
+        <Button type="button" onClick={() => setShowOption(false)}>Cancelar</Button>
         <Button type="submit">
           {option === "add" ? "Criar Serviço" : "Editar Serviço" }
         </Button>

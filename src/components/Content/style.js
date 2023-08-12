@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
 
-    opacity: ${props => props.showUpdateOption ? 0.3 : 1};
-    pointer-events: ${props => props.showUpdateOption ? "none" : "auto"};
+    opacity: ${props => props.showOption ? 0.3 : 1};
+    pointer-events: ${props => props.showOption ? "none" : "auto"};
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(4, 250px);
@@ -12,6 +12,7 @@ const Container = styled.div`
 
 const Element = styled.div`
 
+    opacity: ${props => props.opacity === '1' ? 1 : 0.5};
     background-color: #000;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
     width: 100%;
@@ -27,6 +28,14 @@ const Element = styled.div`
     &:hover {
         box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px, rgb(155, 155, 155) 0px 0px 0px 3px; 
     }
+`;
+
+const DetailsContainer = styled.div`
+
+    height: ${props => props.showOption ? "175px" : "auto"};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 const Details = styled.div`
@@ -95,6 +104,7 @@ const Options = styled.div`
 export {
     Container,
     Element,
+    DetailsContainer,
     Details,
     LeftDetails,
     RightDetails,
