@@ -4,7 +4,7 @@ const Container = styled.div`
 
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(4, 250px);
     gap: 60px;
 `;
 
@@ -77,10 +77,24 @@ const RightDetails = styled.div`
     }
 `;
 
+const Options = styled.div`
+
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+
+    img {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+    }
+`;
+
 export {
     Container,
     Element,
     Details,
     LeftDetails,
-    RightDetails
+    RightDetails,
+    Options
 }

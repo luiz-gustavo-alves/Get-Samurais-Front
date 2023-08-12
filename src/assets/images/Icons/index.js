@@ -10,6 +10,9 @@ import gearsIcon from "./gearsIcon.svg";
 import samuraiIcon from "./samuraiIcon.svg";
 import bambooHatIcon from "./bambooHatIcon.svg";
 import globeIcon from "./globeIcon.svg";
+import addIcon from "./addIcon.svg";
+import editIcon from "./editIcon.svg";
+import trashIcon from "./trashIcon.svg";
 
 export {
     programmingIcon,
@@ -23,5 +26,8 @@ export {
     gearsIcon,
     samuraiIcon,
     bambooHatIcon,
-    globeIcon
+    globeIcon,
+    addIcon,
+    editIcon,
+    trashIcon
 }

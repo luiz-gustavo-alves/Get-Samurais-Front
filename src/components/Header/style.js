@@ -99,7 +99,7 @@ const ProfileOptions = styled.div`
     position: fixed;
     background-color: #000;
     border: 2px solid #F4F4F4;
-    top: 110px;
+    top: 90px;
     right: 34px;
     padding: 20px;
     display: flex;

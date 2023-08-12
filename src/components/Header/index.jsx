@@ -43,6 +43,10 @@ export default function Header() {
     } else {
 
       const icon = (auth.type === "userSession") ? bambooHatIcon : samuraiIcon;
+      const serviceProviderOption = (auth.type === "serviceProviderSession") ?
+          <Option onClick={() => { navigate("/services/me"); toggleProfileOption(); }}>Serviços</Option>
+        :
+          ""
 
       return (
         <>
@@ -52,6 +56,7 @@ export default function Header() {
           {showProfileOptions &&
             <ProfileOptions>
               <Option>Perfil</Option>
+              {serviceProviderOption}
               <Option onClick={logout}>Sair</Option>
             </ProfileOptions>
           }
@@ -65,7 +70,7 @@ export default function Header() {
   return (
     <Container>
       <TopContent>
-        <TopLeftContent onClick={() => navigate("/")}>
+        <TopLeftContent onClick={() => { navigate("/"); setShowProfileOptions(false) }}>
           <img src={samuraiIcon} />
           <h1>GetSamurais</h1>
         </TopLeftContent>
