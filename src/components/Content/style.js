@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
 
+    opacity: ${props => props.showUpdateOption ? 0.3 : 1};
+    pointer-events: ${props => props.showUpdateOption ? "none" : "auto"};
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(4, 250px);

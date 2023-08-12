@@ -86,13 +86,14 @@ export default function ServicePage() {
 
       <InfoContainer>
         <p>Informações de Contato</p>
+        <h3>Prestador de Serviço: {serviceData.name}</h3>
+        <h3>Celular: {cellphoneNumber}</h3>
+        <h3>Criado em: {createdAt}</h3>
         <h3>UF: {serviceData.UF}</h3>
         <h3>Cidade: {serviceData.city}</h3>
         <h3>CEP: {serviceData.CEP}</h3>
         <h3>Endereço: {serviceData.address}</h3>
         {serviceData.complement.length > 0 ? <h3>Complemento: {serviceData.complement}</h3> : ""}
-        <h3>Celular: {cellphoneNumber}</h3>
-        <h3>Criado em: {createdAt}</h3>
       </InfoContainer>
 
       <OptionsContainer>

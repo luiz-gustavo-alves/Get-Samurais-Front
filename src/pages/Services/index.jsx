@@ -2,7 +2,7 @@ import {
   Container,
 } from "./style";
 
-import Content from "./Content";
+import Content from "../../components/Content";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -36,7 +36,10 @@ export default function Service() {
 
   return (
     <Container>
-      <Content servicesData={servicesData} />
+      <Content
+        servicesData={servicesData} 
+        showOptions={false} 
+      />
     </Container>
   )
 }
