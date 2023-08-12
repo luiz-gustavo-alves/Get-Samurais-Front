@@ -28,7 +28,6 @@ const LeftContent = styled.div`
         width: 300px;
         height: 300px;
         object-fit: cover;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
     }
 `;
 
@@ -134,6 +133,32 @@ const InfoContainer = styled.div`
     }
 `;
 
+const OptionsContainer = styled.div`
+
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+`;
+
+const OptionButton = styled.button`
+
+    width: 180px;
+    height: 60px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: none;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.4) 111px 18px 36px -18px inset;
+    cursor: pointer;
+
+    &:focus {
+        opacity: 0.7;
+    }
+`;
+
 export {
     Container,
     Content,
@@ -143,5 +168,7 @@ export {
     DetailsContainer,
     PriceContainer,
     RoleContainer,
-    InfoContainer
+    InfoContainer,
+    OptionsContainer,
+    OptionButton
 };

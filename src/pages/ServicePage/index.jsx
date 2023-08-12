@@ -7,14 +7,16 @@ import {
   DetailsContainer,
   PriceContainer,
   RoleContainer,
-  InfoContainer
+  InfoContainer,
+  OptionsContainer,
+  OptionButton
 } from "./style";
 
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import serviceService from "../../services/service.service";
-import roleIconsHashTable from "../../utils/roleIconsHashTable";
+import roleIconsHashTable from "../../utils/roleIconsHashTable.js";
 
 export default function ServicePage() {
 
@@ -92,6 +94,10 @@ export default function ServicePage() {
         <h3>Celular: {cellphoneNumber}</h3>
         <h3>Criado em: {createdAt}</h3>
       </InfoContainer>
+
+      <OptionsContainer>
+        <OptionButton onClick={() => navigate(-1)}>Voltar</OptionButton>
+      </OptionsContainer>
     </Container>
   )
 }
