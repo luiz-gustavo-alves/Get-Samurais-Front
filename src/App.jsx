@@ -1,37 +1,43 @@
 import {
-  BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  useLocation
 } from "react-router-dom";
 
 import {
   Home,
   Login,
   Register,
-  Service
+  Services,
+  ServicePage
 } from "./pages";
 
 import { AuthProvider } from "./contexts/authContext";
 
 import Header from "./components/Header";
+import Banner from "./components/Banner";
 
 import "./assets/styles/reset.css";
 import "./assets/styles/style.css";
 
 export default function App() {
 
+  const { pathname } = useLocation();
+
   return (
-    <Router>
+    <>
       <AuthProvider>
         <Header />
+        { pathname !== "/signin" && pathname !== "/signup" && <Banner /> }
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/service/:id" element={<ServicePage />}></Route>
+          <Route path="/services/:role" element={<Services />}></Route>
+          <Route path="/services" element={<Services />}></Route>
           <Route path="/signin" element={<Login />}></Route>
           <Route path="/signup" element={<Register />}></Route>
-          <Route path="/service" element={<Service />}></Route>
-          <Route path="/service/:role" element={<Service />}></Route>
+          <Route path="/" element={<Home />}></Route>
         </Routes>
       </AuthProvider>
-    </Router>
+    </>
   );
 }
