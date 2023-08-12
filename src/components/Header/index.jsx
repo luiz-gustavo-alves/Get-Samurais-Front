@@ -68,7 +68,6 @@ export default function Header() {
         <TopLeftContent onClick={() => navigate("/")}>
           <img src={samuraiIcon} />
           <h1>GetSamurais</h1>
-          <img src={samuraiIcon} />
         </TopLeftContent>
         <TopRightContent>
           {authContent}

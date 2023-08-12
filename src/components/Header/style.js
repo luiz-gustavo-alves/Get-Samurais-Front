@@ -4,8 +4,9 @@ const Container = styled.div`
 
     height: auto;
     gap: 15px;
-    padding: 30px 80px;
+    padding: 20px 80px;
     background-color: black;
+    border-bottom: 2px solid #fff;
 `;
 
 const TopContent = styled.div`
@@ -30,12 +31,12 @@ const TopLeftContent = styled.div`
     }
 
     img {
-        width: 48px;
+        width: 40px;
         height: 48px;
     }
 
     h1 {
-        font-size: 36px;
+        font-size: 40px;
         font-weight: 800;
         color: #FFF;
     }

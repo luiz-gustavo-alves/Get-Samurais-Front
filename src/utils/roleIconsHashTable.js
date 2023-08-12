@@ -5,7 +5,7 @@ import {
     financialIcon,
     handshakeIcon,
     healthIcon,
-    carIcon,
+    teachingIcon,
     houseIcon,
     gearsIcon
 } from "../assets/images/Icons";
@@ -13,13 +13,13 @@ import {
 export default function iconsHashTable() {
     
     const icons =  [
-        {role: 'informatica', icon: programmingIcon },
+        {role: 'tecnologia', icon: programmingIcon },
         {role: 'marketing', icon: marketingIcon },
         {role: 'arquitetura', icon: architectureIcon },
         {role: 'financeiro', icon: financialIcon },
         {role: 'consultoria', icon: handshakeIcon },
         {role: 'saude', icon: healthIcon },
-        {role: 'veiculo', icon: carIcon },
+        {role: 'aulas', icon: teachingIcon },
         {role: 'domestico', icon: houseIcon },
         {role: 'outros', icon: gearsIcon }
     ];

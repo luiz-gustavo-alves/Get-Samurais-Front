@@ -15,10 +15,10 @@ const Element = styled.div`
     justify-content: center;
     align-items: center;
     width: 60px;
-    gap: 10px;
+    gap: 5px;
 
     img {
-        width: 48px;
+        width: 32px;
         height: 48px;
     }
 

@@ -4,7 +4,7 @@ import architectureIcon from "./architectureIcon.svg";
 import financialIcon from "./financialIcon.svg";
 import handshakeIcon from "./handshakeIcon.svg";
 import healthIcon from "./healthIcon.svg";
-import carIcon from "./carIcon.svg";
+import teachingIcon from "./teachingIcon.svg";
 import houseIcon from "./houseIcon.svg";
 import gearsIcon from "./gearsIcon.svg";
 import samuraiIcon from "./samuraiIcon.svg";
@@ -18,7 +18,7 @@ export {
     financialIcon,
     handshakeIcon,
     healthIcon,
-    carIcon,
+    teachingIcon,
     houseIcon,
     gearsIcon,
     samuraiIcon,
