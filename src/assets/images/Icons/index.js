@@ -13,6 +13,7 @@ import globeIcon from "./globeIcon.svg";
 import addIcon from "./addIcon.svg";
 import editIcon from "./editIcon.svg";
 import trashIcon from "./trashIcon.svg";
+import menuIcon from "./menuIcon.svg";
 
 export {
     programmingIcon,
@@ -29,5 +30,6 @@ export {
     globeIcon,
     addIcon,
     editIcon,
-    trashIcon
+    trashIcon,
+    menuIcon
 }

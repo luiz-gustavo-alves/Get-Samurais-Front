@@ -13,14 +13,24 @@ const Container = styled.form`
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 200;
+
+    @media (max-width: 700px) {
+        width: 90%;
+        padding: 20px;
+    }
 `;
 
 const Title = styled.h2`
 
     font-size: 34px;
+    text-align: center;
     font-weight: 700;
     margin: 0 auto 10px auto;
     color: #fff;
+
+    @media (max-width: 450px) {
+        font-size: 25px;
+    }
 `;
 
 const Content = styled.div`
@@ -48,6 +58,10 @@ const Input = styled.input`
     outline: none;
     color: #fff;
     box-shadow: rgba(0, 0, 0, 0.7) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.4) 111px 18px 36px -18px inset;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 `;
 
 const Description = styled.textarea`
@@ -77,6 +91,11 @@ const Label = styled.h2`
     top: -13px;
     left: 10px;
     border: none;
+
+    @media (max-width: 450px) {
+        font-size: 22px;
+        top: -15px;
+    }
 `;
 
 const DropDown = styled.div`
@@ -121,6 +140,10 @@ const CheckBox = styled.input`
     right: 0;
     bottom: -20px;
     cursor: pointer;
+
+    @media (max-width: 450px) {
+        width: 30px;
+    }
 `;
 
 const ButtonContainer = styled.div`
@@ -146,6 +169,11 @@ const Button = styled.button`
 
     &:focus {
         opacity: 0.7;
+    }
+
+    @media (max-width: 550px) {
+        width: 115px;
+        font-size: 16px;
     }
 `;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { samuraiWp1 } from "../../assets/images/Backgrounds";
+import { samuraiWp3 } from "../../assets/images/Backgrounds";
 
 const Form = styled.form`
 
@@ -14,10 +14,13 @@ const Form = styled.form`
     align-items: center;
     padding: 40px;
     background-color: #000;
-    background-image: url(${samuraiWp1});
-    background-position: center;
-    background-size: 685px 400px;
+    background-image: url(${samuraiWp3});
+    background-size: 100% 555px;
     background-repeat: no-repeat;
+    
+    @media (max-width: 800px) {
+        width: 90%;
+    }
 `;
 
 const Title = styled.h2`

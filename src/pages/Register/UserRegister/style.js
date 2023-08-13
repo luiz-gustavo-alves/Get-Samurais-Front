@@ -19,15 +19,30 @@ const Form = styled.form`
     background-position: center;
     background-size: 350px;
     background-repeat: no-repeat;
+
+    @media (max-width: 800px) {
+        width: 90%;
+    }
 `;
 
 const Title = styled.h2`
 
     font-size: 52px;
     font-weight: 600;
+    text-align: center;
     color: #FFF;
     position: absolute;
     top: 8px;
+    padding: 0 25px;
+
+    @media (max-width: 800px) {
+        font-size: 44px
+    }
+
+    @media (max-width: 414px) {
+        font-size: 28px;
+        top: 22px;
+    }
 `;
 
 export {

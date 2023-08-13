@@ -8,6 +8,14 @@ const Container = styled.div`
     justify-content: center;
     grid-template-columns: repeat(4, 250px);
     gap: 60px;
+
+    @media (max-width: 1225px) {
+        grid-template-columns: repeat(2, 250px); 
+    }
+
+    @media (max-width: 625px) {
+        grid-template-columns: repeat(1, 250px); 
+    }
 `;
 
 const Element = styled.div`

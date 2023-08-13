@@ -82,6 +82,7 @@ export default function UserRegister() {
           <Input
             type="password"
             name="password"
+            minLength={5}
             value={formData.password}
             onChange={handleChange}
             required
@@ -93,6 +94,7 @@ export default function UserRegister() {
             type="password"
             name="confirmPassword"
             value={confirmPassword}
+            minLength={5}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />

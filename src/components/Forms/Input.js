@@ -18,6 +18,10 @@ const Input = styled.input`
         font-size: 16px;
         color: #9C9C9C;
     }
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 `;
 
 export default Input;

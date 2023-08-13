@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { samuraiWp3 } from "../../../assets/images/Backgrounds";
+import { samuraiWp1 } from "../../../assets/images/Backgrounds";
 
 const Form = styled.form`
 
@@ -15,19 +15,34 @@ const Form = styled.form`
     margin-top: 40px;
     padding: 30px;
     background-color: #000;
-    background-image: url(${samuraiWp3});
-    background-position: top;
-    background-size: 700px 625px;
+    background-image: url(${samuraiWp1});
+    background-position: center;
     background-repeat: no-repeat;
+
+    @media (max-width: 800px) {
+        width: 90%;
+    }
 `;
 
 const Title = styled.h2`
 
     font-size: 37px;
     font-weight: 600;
+    text-align: center;
     color: #FFF;
     position: absolute;
     top: 18px;
+    padding: 0 30px;
+
+    @media (max-width: 800px) {
+        font-size: 25px;
+        top: 28px;
+    }
+
+    @media (max-width: 414px) {
+        font-size: 18px;
+        top: 34px;
+    }
 `;
 
 const Label = styled.h2`
@@ -47,6 +62,10 @@ const DropDown = styled.div`
 
     display: flex;
     position: relative;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 `;
 
 const DropDownValue = styled.div`
@@ -68,7 +87,7 @@ const DropDownValue = styled.div`
 
 const DropDownContent = styled.select`
 
-    background: none;
+    background: #FFF;
     border: none;
     outline: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

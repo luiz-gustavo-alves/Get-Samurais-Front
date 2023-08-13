@@ -5,6 +5,10 @@ const Container = styled.div`
     padding: 60px 35px;
     margin: 0px auto;
     width: 1000px;
+
+    @media (max-width: 1000px) {
+        width: 95%;
+    }
 `;
 
 const Content = styled.div`
@@ -14,6 +18,11 @@ const Content = styled.div`
     height: 350px;
     background-color: #000;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+
+    @media (max-width: 1000px) {
+        flex-direction: column;
+        height: auto;
+    }
 `;
 
 const LeftContent = styled.div`
@@ -26,8 +35,16 @@ const LeftContent = styled.div`
 
     img {
         width: 300px;
-        height: 300px;
-        object-fit: cover;
+        object-fit: contain;
+    }
+
+    @media (max-width: 1000px) {
+        margin-left: 0;
+        margin-top: 20px;
+
+        img {
+            width: 90%;
+        }
     }
 `;
 
@@ -54,6 +71,10 @@ const RightContent = styled.div`
         font-weight: 600;
         -webkit-line-clamp: 3;
     }
+
+    @media (max-width: 1000px) {
+        width: auto;
+    }
 `;
 
 const TopRightContent = styled.div`
@@ -73,6 +94,13 @@ const DetailsContainer = styled.div`
         font-weight: 900;
         color: #fff;
     }
+
+    @media (max-width: 450px) {
+
+        h2 {
+            font-size: 26px;
+        }
+    }
 `;
 
 const PriceContainer = styled.div`
@@ -89,6 +117,13 @@ const PriceContainer = styled.div`
 
     span {
         text-decoration: underline;
+    }
+
+    @media (max-width: 450px) {
+        
+        h3 {
+            font-size: 22px;
+        }
     }
 `
 
@@ -107,6 +142,19 @@ const RoleContainer = styled.div`
     img {
         width: 48px;
         height: 48px;
+    }
+
+    @media (max-width: 450px) {
+        
+        h3 {
+            font-size: 22px;
+            text-align: left;
+            line-height: 32px;
+        }
+
+        img {
+            width: 38px;
+        }
     }
 `;
 
@@ -130,6 +178,10 @@ const InfoContainer = styled.div`
         line-height: 26px;
         white-space: pre-wrap;
         color: #fff;
+    }
+
+    span {
+        font-weight: 700;
     }
 `;
 

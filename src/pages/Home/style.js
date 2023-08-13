@@ -44,6 +44,10 @@ const DescriptionContainer = styled.div`
     flex-direction: column;
     width: 600px;
     height: 100%;
+
+    @media (max-width: 700px) {
+        width: 100%;
+    }
 `;
 
 const Description = styled.h3`

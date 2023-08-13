@@ -24,7 +24,14 @@ const TitleContainer = styled.div`
 const Title = styled.h2`
 
     font-size: 42px;
+    padding: 0 20px;
     color: #fff;
+
+    @media (max-width: 450px) {
+        font-size: 34px;
+        line-height: 44px;
+        text-align: center;
+    }
 `;
 
 const CreateServiceContainer = styled.div`
@@ -45,6 +52,19 @@ const CreateServiceContainer = styled.div`
         width: 46px;
         height: 46px;
         cursor: pointer;
+    }
+
+    @media (max-width: 450px) {
+
+        h2 {
+            font-size: 26px;
+            line-height: 36px;
+            text-align: center;
+        }
+
+        img {
+            width: 36px;
+        }
     }
 `;
 

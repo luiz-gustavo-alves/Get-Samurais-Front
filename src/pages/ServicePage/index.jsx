@@ -70,7 +70,7 @@ export default function ServicePage() {
                   <h3>Preço: <span>R$ {serviceData.price.toFixed(2)}</span></h3>
                 </PriceContainer>
                 <RoleContainer>
-                  <h3>Categoria do Serviço:</h3>
+                  <h3>Categoria:</h3>
                   <img src={iconsHashTable[serviceData.role]} alt={serviceData.role} title={serviceData.role}/>
                 </RoleContainer>
               </DetailsContainer>
@@ -86,13 +86,13 @@ export default function ServicePage() {
 
       <InfoContainer>
         <p>Informações de Contato</p>
-        <h3>Prestador de Serviço: {serviceData.name}</h3>
-        <h3>Celular: {cellphoneNumber}</h3>
-        <h3>Criado em: {createdAt}</h3>
-        <h3>UF: {serviceData.UF}</h3>
-        <h3>Cidade: {serviceData.city}</h3>
-        <h3>CEP: {serviceData.CEP}</h3>
-        <h3>Endereço: {serviceData.address}</h3>
+        <h3><span>Prestador de Serviço: </span> {serviceData.name}</h3>
+        <h3><span>Celular: </span> {cellphoneNumber}</h3>
+        <h3><span>Criado em: </span> {createdAt}</h3>
+        <h3><span>UF: </span> {serviceData.UF}</h3>
+        <h3><span>Cidade: </span> {serviceData.city}</h3>
+        <h3><span>CEP: </span> {serviceData.CEP}</h3>
+        <h3><span>Endereço: </span> {serviceData.address}</h3>
         {serviceData.complement.length > 0 ? <h3>Complemento: {serviceData.complement}</h3> : ""}
       </InfoContainer>
 

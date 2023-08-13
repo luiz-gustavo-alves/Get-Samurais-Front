@@ -107,6 +107,7 @@ export default function ServiceProviderRegister() {
             <Input
               type="password"
               name="password"
+              minLength={5}
               value={userFormData.password}
               onChange={handleUserFormChange}
               required
@@ -117,6 +118,7 @@ export default function ServiceProviderRegister() {
             <Input
               type="password"
               name="confirmPassword"
+              minLength={5}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required

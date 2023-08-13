@@ -10,6 +10,10 @@ const Content = styled.div`
         filter: invert(100%);
         color: inherit;
     }
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 `
 
 export default Content;

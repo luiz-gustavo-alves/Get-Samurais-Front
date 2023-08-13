@@ -7,6 +7,10 @@ const Container = styled.div`
     padding: 20px 80px;
     background-color: black;
     border-bottom: 2px solid #fff;
+
+    @media (max-width: 700px) {
+        padding: 20px;
+    }
 `;
 
 const TopContent = styled.div`
@@ -23,22 +27,33 @@ const TopLeftContent = styled.div`
     align-items: center;
     gap: 20px;
 
-    cursor: pointer;
-    transition: all .2s;
-
-    &:hover {
-        opacity: 0.7;
-    }
-
     img {
         width: 40px;
         height: 48px;
+        cursor: pointer;
     }
 
     h1 {
         font-size: 40px;
         font-weight: 800;
         color: #FFF;
+        cursor: pointer;
+
+        transition: all .2s;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    @media (max-width: 700px) {
+
+        img {
+            width: 32px;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
     }
 `;
 
@@ -72,6 +87,28 @@ const TopRightContent = styled.div`
         border-radius: 5px;
         padding: 10px;
     }
+
+    .menu {
+        display: none;
+    }
+
+    @media (max-width: 700px) {
+
+        h2 {
+            display: none;
+        }
+
+        .menu {
+
+            display: block;
+            cursor: pointer;
+            transition: all .2s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
 `;
 
 const IconBorder = styled.div`
@@ -92,11 +129,32 @@ const IconBorder = styled.div`
     }
 `;
 
+const MenuOption = styled.div`
+
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-color: #000;
+    border: 2px solid #F4F4F4;
+    top: 90px;
+    right: 0px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+
+    @media (min-width: 700px) {
+        display: none;
+    }
+`;
+
 const ProfileOptions = styled.div`
 
     width: 150px;
     height: 150px;
-    position: fixed;
+    position: absolute;
     background-color: #000;
     border: 2px solid #F4F4F4;
     top: 90px;
@@ -107,6 +165,10 @@ const ProfileOptions = styled.div`
     align-items: center;
     gap: 30px;
     justify-content: center;
+
+    @media (max-width: 700px) {
+        right: 0px;
+    }
 `;
 
 const Option = styled.h3`
@@ -129,6 +191,7 @@ export {
     TopLeftContent,
     TopRightContent,
     IconBorder,
+    MenuOption,
     ProfileOptions,
     Option
 }

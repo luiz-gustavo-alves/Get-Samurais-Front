@@ -12,6 +12,11 @@ const Content = styled.div`
     border-radius: 40px;
     background-color: #000;
     padding: 40px;
+
+    @media (max-width: 900px) {
+        width: 90%;
+        padding: 20px;
+    }
 `;
 
 const Title = styled.h2`
@@ -22,6 +27,11 @@ const Title = styled.h2`
     color: #fff;
     position: absolute;
     top: 52px;
+    padding: 0 35px;
+
+    @media (max-width: 900px) {
+        font-size: 38px;
+    }
 `;
 
 const RegisterContent = styled.div`
@@ -37,6 +47,13 @@ const RegisterContent = styled.div`
         height: 100px;
         cursor: pointer;
     }
+
+    @media (max-width: 900px) {
+        
+        img {
+            width: 80px;
+        }
+    }
 `;
 
 const ContentContainer = styled.div`
@@ -47,6 +64,7 @@ const ContentContainer = styled.div`
     justify-content: center;
     align-items: center;
     transition: all .2s;
+    padding: 0 20px;
 
     h3 {
         font-size: 28px;
@@ -58,6 +76,14 @@ const ContentContainer = styled.div`
 
     &:hover {
         opacity: 0.7;
+    }
+
+    @media (max-width: 900px) {
+
+        h3 {
+            font-size: 25px;
+            line-height: 35px;
+        }
     }
 `;
 

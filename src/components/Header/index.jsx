@@ -4,13 +4,15 @@ import {
   TopLeftContent,
   TopRightContent,
   IconBorder,
+  MenuOption,
   ProfileOptions,
   Option
 } from "./style";
 
 import {
   samuraiIcon,
-  bambooHatIcon
+  bambooHatIcon,
+  menuIcon
 } from "../../assets/images/Icons";
 
 import { useState } from "react";
@@ -21,20 +23,31 @@ export default function Header() {
 
   const navigate = useNavigate();
   const [showProfileOptions, setShowProfileOptions] = useState(false);
+  const [menu, setMenu] = useState(false);
 
-  const { auth, logout } = useAuth();
-  const isAuth = (Object.keys(auth).length) > 0 ? true : false;
+  const { auth, isAuth, logout } = useAuth();
 
   const toggleProfileOption = () => {
     (showProfileOptions) ? setShowProfileOptions(false) : setShowProfileOptions(true);
   }
 
+  const toggleMenu = () => {
+    (menu) ? setMenu(false) : setMenu(true);
+  }
+
   const setAuthContent = () => {
 
-    if (!isAuth) {
+    if (!isAuth()) {
 
       return (
         <>
+          <img className="menu" src={menuIcon}  onClick={toggleMenu}/>
+          {menu && 
+            <MenuOption>
+              <Option onClick={() => navigate("/signin")}>Login</Option>
+              <Option onClick={() => navigate("/signup")} className="register">Cadastro</Option>
+            </MenuOption>
+          }
           <h2 onClick={() => navigate("/signin")}>Login</h2>
           <h2 onClick={() => navigate("/signup")} className="register">Cadastro</h2>
         </>

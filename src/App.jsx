@@ -14,8 +14,7 @@ import {
 } from "./pages";
 
 import {
-  AuthProvider,
-  MenuProvider
+  AuthProvider
 } from "./contexts";
 
 import Header from "./components/Header";
@@ -39,19 +38,17 @@ export default function App() {
   return (
     <>
       <AuthProvider>
-        <MenuProvider>
-          <Header />
-          { showBanner(pathname) && <Banner /> }
-          <Routes>
-            <Route path="/service/:id" element={<ServicePage />}></Route>
-            <Route path="/services/me" element={<ServiceProviderPage />}></Route>
-            <Route path="/services/:role" element={<Services />}></Route>
-            <Route path="/services" element={<Services />}></Route>
-            <Route path="/signin" element={<Login />}></Route>
-            <Route path="/signup" element={<Register />}></Route>
-            <Route path="/" element={<Home />}></Route>
-          </Routes>
-        </MenuProvider>
+        <Header />
+        { showBanner(pathname) && <Banner /> }
+        <Routes>
+          <Route path="/service/:id" element={<ServicePage />}></Route>
+          <Route path="/services/me" element={<ServiceProviderPage />}></Route>
+          <Route path="/services/:role" element={<Services />}></Route>
+          <Route path="/services" element={<Services />}></Route>
+          <Route path="/signin" element={<Login />}></Route>
+          <Route path="/signup" element={<Register />}></Route>
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
       </AuthProvider>
     </>
   );
