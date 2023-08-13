@@ -18,7 +18,7 @@ import authService from "../../services/auth.service";
 
 export default function Login() {
 
-  const { auth, login } = useAuth();
+  const { isAuth, login } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -51,8 +51,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    const isAuth = (Object.keys(auth).length) > 0 ? true : false;
-    if (isAuth) {
+    if (isAuth()) {
       navigate("/");
     }
   }, []);

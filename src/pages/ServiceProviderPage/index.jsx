@@ -19,8 +19,7 @@ import serviceProviderService from "../../services/serviceProvider.service";
 
 export default function ServiceProviderPage() {
 
-  const { auth } = useAuth();
-  const isAuth = (Object.keys(auth).length > 0) ? true : false;
+  const { auth, isAuth } = useAuth();
 
   const navigate = useNavigate();
   const [serviceProviderData, setServiceProviderData] = useState(null);
@@ -29,7 +28,7 @@ export default function ServiceProviderPage() {
 
   useEffect(() => {
 
-    if (!isAuth) {
+    if (!isAuth()) {
       navigate("/");
       return;
     }

@@ -9,7 +9,7 @@ import useAuth from "../../hooks/useAuth";
 
 export default function Register() {
 
-  const { auth } = useAuth();
+  const { isAuth } = useAuth();
   const navigate = useNavigate();
 
   const [choice, setChoice] = useState(null);
@@ -28,8 +28,7 @@ export default function Register() {
   }
 
   useEffect(() => {
-    const isAuth = (Object.keys(auth).length) > 0 ? true : false;
-    if (isAuth) {
+    if (isAuth()) {
       navigate("/");
     }
   }, []);

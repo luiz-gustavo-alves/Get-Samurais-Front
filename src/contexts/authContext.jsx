@@ -23,8 +23,12 @@ export function AuthProvider({ children }) {
       .catch(() => alert("Erro interno do servidor.\nTente novamente mais tarde!"));
   }
 
+  const isAuth = () => {
+    return Object.keys(auth).length > 0;
+  }
+
   return (
-    <AuthContext.Provider value={{ auth, login, logout }}>
+    <AuthContext.Provider value={{ auth, login, logout, isAuth }}>
       {children}
     </AuthContext.Provider>
   );
