@@ -35,7 +35,8 @@ const LeftContent = styled.div`
 
     img {
         width: 300px;
-        object-fit: contain;
+        height: 300px;
+        object-fit: cover;
     }
 
     @media (max-width: 1000px) {
@@ -185,6 +186,33 @@ const InfoContainer = styled.div`
     }
 `;
 
+const ServiceProvider = styled.div`
+
+    display: flex;
+    align-items: center;
+
+    h3 {
+        font-size: 16px;
+        line-height: 26px;
+        white-space: pre-wrap;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    span {
+        font-weight: 700;
+        text-decoration: underline;
+        padding: 0 5px;
+        transition: all .2s;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+`;
+
 const OptionsContainer = styled.div`
 
     padding: 20px 0;
@@ -221,6 +249,7 @@ export {
     PriceContainer,
     RoleContainer,
     InfoContainer,
+    ServiceProvider,
     OptionsContainer,
     OptionButton
 };

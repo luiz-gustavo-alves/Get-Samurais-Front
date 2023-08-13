@@ -10,7 +10,8 @@ import {
   Register,
   Services,
   ServicePage,
-  ServiceProviderPage
+  ServiceProviderPage,
+  Profile
 } from "./pages";
 
 import {
@@ -41,6 +42,8 @@ export default function App() {
         <Header />
         { showBanner(pathname) && <Banner /> }
         <Routes>
+          <Route path="/profile/service-provider/:id" element={<Profile />}></Route>
+          <Route path="/profile/me" element={<Profile />}></Route>
           <Route path="/service/:id" element={<ServicePage />}></Route>
           <Route path="/services/me" element={<ServiceProviderPage />}></Route>
           <Route path="/services/:role" element={<Services />}></Route>

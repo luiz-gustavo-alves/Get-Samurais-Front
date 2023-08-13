@@ -4,6 +4,7 @@ import Register from "./Register";
 import Services from "./Services";
 import ServicePage from "./ServicePage";
 import ServiceProviderPage from "./ServiceProviderPage";
+import Profile from "./Profile";
 
 export {
     Home,
@@ -11,5 +12,6 @@ export {
     Register,
     Services,
     ServicePage,
-    ServiceProviderPage
+    ServiceProviderPage,
+    Profile
 }

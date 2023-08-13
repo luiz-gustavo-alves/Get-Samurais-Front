@@ -68,7 +68,7 @@ export default function Header() {
           </IconBorder>
           {showProfileOptions &&
             <ProfileOptions>
-              <Option>Perfil</Option>
+              <Option onClick={() => { navigate("/profile/me"); toggleProfileOption(); }}>Perfil</Option>
               {serviceProviderOption}
               <Option onClick={logout}>Sair</Option>
             </ProfileOptions>

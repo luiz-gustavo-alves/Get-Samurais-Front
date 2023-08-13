@@ -8,6 +8,7 @@ import {
   PriceContainer,
   RoleContainer,
   InfoContainer,
+  ServiceProvider,
   OptionsContainer,
   OptionButton
 } from "./style";
@@ -86,7 +87,13 @@ export default function ServicePage() {
 
       <InfoContainer>
         <p>Informações de Contato</p>
-        <h3><span>Prestador de Serviço: </span> {serviceData.name}</h3>
+        <ServiceProvider>
+          <h3>Prestador de Serviço: 
+            <span onClick={() => navigate(`/profile/service-provider/${serviceData.serviceProviderId}`)}>
+              {serviceData.name}
+            </span>
+          </h3>
+        </ServiceProvider>
         <h3><span>Celular: </span> {cellphoneNumber}</h3>
         <h3><span>Criado em: </span> {createdAt}</h3>
         <h3><span>UF: </span> {serviceData.UF}</h3>
