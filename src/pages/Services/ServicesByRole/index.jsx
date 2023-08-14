@@ -17,17 +17,16 @@ import serviceService from "../../../services/service.service";
 
 export default function ServicesByRole() {
 
+  const { offset, resetOffset, updateOffset, validateOffset } = useOffset();
   const { role } = useParams();
+  const currentLocation = role;
 
   const [servicesData, setServicesData] = useState(null);
   const [location, setLocation] = useState(sessionStorage.getItem("lastRole"));
 
-  const { offset, resetOffset, updateOffset, validateOffset } = useOffset();
-  const currentLocation = role;
-
   useEffect(() => {
 
-    if (servicesData === null || currentLocation === null || currentLocation !== location) {
+    if (servicesData === null || currentLocation !== location) {
 
       sessionStorage.setItem("lastRole", role)
       setLocation(role);
@@ -37,7 +36,7 @@ export default function ServicesByRole() {
         .then(res => setServicesData(res.data))
         .catch(() => alert("Erro interno do servidor.\nTente novamente mais tarde!"));
 
-    } else if (offset !== 0) {
+    } else if (offset > 0) {
 
       serviceService.getServicesByRole(role, offset)
         .then(res => {

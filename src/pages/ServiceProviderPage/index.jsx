@@ -6,6 +6,11 @@ import {
 } from "./style";
 
 import {
+  OffsetContainer,
+  OffsetButton
+} from '../../components/Offset';
+
+import {
   addIcon 
 } from '../../assets/images/Icons';
 
@@ -15,11 +20,13 @@ import ServiceOption from "../../components/ServiceOption";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useOffset from "../../hooks/useOffset";
 import serviceProviderService from "../../services/serviceProvider.service";
 
 export default function ServiceProviderPage() {
 
   const { auth, isAuth } = useAuth();
+  const { offset, resetOffset, updateOffset, validateOffset } = useOffset();
 
   const navigate = useNavigate();
   const [serviceProviderData, setServiceProviderData] = useState(null);
@@ -33,17 +40,30 @@ export default function ServiceProviderPage() {
       return;
     }
 
-    serviceProviderService.getCreatedServices(auth.token)
-      .then(res => setServiceProviderData(res.data))
-      .catch(() => alert("Erro interno do servidor.\nTente novamente mais tarde!"));
+    if (serviceProviderData === null) {
+      resetOffset();
+      serviceProviderService.getCreatedServices(auth.token, 0)
+        .then(res => setServiceProviderData(res.data))
+        .catch(() => alert("Erro interno do servidor.\nTente novamente mais tarde!"));
 
-  }, [auth, showOptions, showAddOption]);
+    } else if (offset > 0) {
+
+      serviceProviderService.getCreatedServices(auth.token, offset)
+        .then(res => {
+
+            const { data } = res.data;
+            const currentData = [...serviceProviderData.data];
+            currentData.push(...data);
+            setServiceProviderData({...serviceProviderData, data: currentData })
+        })
+        .catch(() => alert("Erro interno do servidor.\nTente novamente mais tarde!"));
+    }
+
+  }, [auth, showOptions, showAddOption, offset]);
 
   if (serviceProviderData === null) {
     return <h1>Carregando...</h1>
   }
-
-  console.log(serviceProviderData);
 
   return (
     <>
@@ -67,6 +87,11 @@ export default function ServiceProviderPage() {
           setShowOption={setShowAddOption}
           token={auth.token} 
         />
+      }
+      {validateOffset(serviceProviderData.data, serviceProviderData.counter) &&
+        <OffsetContainer>
+          <OffsetButton onClick={updateOffset}>Ver mais</OffsetButton>
+        </OffsetContainer>
       }
     </>
   )

@@ -1,9 +1,15 @@
 import API from "./api";
 import { createConfig } from "./api";
 
-function getCreatedServices (token) {
+function getCreatedServices (token, offset) {
+
     const config = createConfig(token);
-    return API.get("/services/me", config);
+    if (offset === 0) {
+        return API.get("/services/me", config);
+
+    } else {
+        return API.get(`/services/me?offset=${offset}`, config);
+    }
 }
 
 function createService (payload, token) {

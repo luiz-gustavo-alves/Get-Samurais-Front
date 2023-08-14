@@ -10,6 +10,11 @@ import {
 } from "./style";
 
 import {
+  OffsetContainer,
+  OffsetButton
+} from "../../components/Offset";
+
+import {
   samuraiIcon,
   bambooHatIcon
 } from "../../assets/images/Icons";
@@ -20,6 +25,7 @@ import { useEffect, useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import useAuth from "../../hooks/useAuth";
+import useOffset from "../../hooks/useOffset";
 import userService from "../../services/user.service";
 
 export default function Profile() {
@@ -27,7 +33,9 @@ export default function Profile() {
   const navigate = useNavigate();
   const params = useParams();
   const { pathname } = useLocation();
+
   const { auth, isAuth } = useAuth();
+  const { offset, resetOffset, updateOffset, validateOffset } = useOffset();
 
   const [profileData, setProfileData] = useState(null);
   const [type, setType] = useState(null);
@@ -52,31 +60,75 @@ export default function Profile() {
     } else {
 
       const { id } = params;
+      setType("serviceProviderProfile");
 
-      userService.getServiceProviderProfile(id)
-        .then(res => {
-          setProfileData(res.data);
-          setType("serviceProviderProfile");
-        })
-        .catch(err => {
+      if (profileData === null) {
+        resetOffset();
+        userService.getServiceProviderProfile(id, 0)
+          .then(res => setProfileData(res.data))
+          .catch(err => {
 
-          if (err.response.status === 404) {
-            alert(err.response.data);
-          }
+            if (err.response.status === 404) {
+              alert(err.response.data);
+            }
 
-          else if (err.response.status === 500) {
-            alert("Erro interno do servidor.\nTente novamente mais tarde!");
-          }
+            else if (err.response.status === 500) {
+              alert("Erro interno do servidor.\nTente novamente mais tarde!");
+            }
+          });
+  
+      } else if (offset > 0) {
 
-        });
+        userService.getServiceProviderProfile(id, offset)
+          .then(res => {
+
+            const { services } = res.data;
+            const currentData = [...profileData.services];
+            currentData.push(...services);
+            setProfileData({...profileData, services: currentData })
+          })
+          .catch(err => {
+
+            console.log(err);
+
+            if (err.response.status === 404) {
+              alert(err.response.data);
+            }
+
+            else if (err.response.status === 500) {
+              alert("Erro interno do servidor.\nTente novamente mais tarde!");
+            }
+          });
+      }
     }
-
-  }, [pathname]);
+  }, [pathname, offset]);
 
   if (profileData === null) {
     return <h1>Carregando...</h1>
   }
 
+  const setServiceContent = () => {
+  
+    if (type === "serviceProviderProfile") {
+      return (
+        <>
+          <ServicesContainer>
+            <h4>Serviços Disponíveis</h4>
+            <Content servicesData={profileData.services} />
+          </ServicesContainer>
+          {validateOffset(profileData.services, profileData.counter) &&
+            <OffsetContainer>
+              <OffsetButton onClick={updateOffset}>Ver mais</OffsetButton>
+            </OffsetContainer>
+          }
+        </>
+      )
+    }
+
+    return false;
+  }
+
+  const serviceContent = setServiceContent();
   const icon = (auth.type === "serviceProviderSession" || type === "serviceProviderProfile" ) ? 
     samuraiIcon : bambooHatIcon;
 
@@ -118,13 +170,9 @@ export default function Profile() {
           </div>
         </RightContent>
       </ProfileContent>
-
-      {type === "serviceProviderProfile" &&
-        <ServicesContainer>
-          <h4>Serviços Disponíveis</h4>
-          <Content servicesData={profileData.services} />
-        </ServicesContainer>
-      }
+      
+      {serviceContent}
+      
     </Container>
   )
 }

@@ -6,8 +6,14 @@ function getUserProfile (payload, token) {
     return API.post("/profile/me", payload, config)
 }
 
-function getServiceProviderProfile (id) {
-    return API.get(`/profile/service-provider/${id}`);
+function getServiceProviderProfile (id, offset) {
+
+    if (offset === 0) {
+        return API.get(`/profile/service-provider/${id}`);
+
+    } else {
+        return API.get(`/profile/service-provider/${id}?offset=${offset}`);
+    }
 }
 
 const userService = {
