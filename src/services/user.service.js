@@ -16,9 +16,24 @@ function getServiceProviderProfile (id, offset) {
     }
 }
 
+function getServicesByQuery (query, order, offset) {
+
+    if (!order) {
+        order = "date";
+    }
+
+    if (offset === 0) {
+        return API.post(`search-service?query=${query}&order=${order}`);
+
+    } else {
+        return API.post(`search-service?query=${query}&order=${order}&offset=${offset}`);
+    }
+}
+
 const userService = {
     getUserProfile,
-    getServiceProviderProfile
+    getServiceProviderProfile,
+    getServicesByQuery
 }
 
 export default userService;

@@ -13,6 +13,7 @@ import {
   ServicePage,
   ServiceProviderPage,
   Profile,
+  Search
 } from "./pages";
 
 import {
@@ -45,6 +46,7 @@ export default function App() {
           <Header />
           { showBanner(pathname) && <Banner /> }
           <Routes>
+            <Route path="/search-service" element={<Search />}></Route>
             <Route path="/profile/service-provider/:id" element={<Profile />}></Route>
             <Route path="/profile/me" element={<Profile />}></Route>
             <Route path="/service/:id" element={<ServicePage />}></Route>

@@ -14,6 +14,7 @@ import addIcon from "./addIcon.svg";
 import editIcon from "./editIcon.svg";
 import trashIcon from "./trashIcon.svg";
 import menuIcon from "./menuIcon.svg";
+import searchIcon from "./searchIcon.svg";
 
 export {
     programmingIcon,
@@ -31,5 +32,6 @@ export {
     addIcon,
     editIcon,
     trashIcon,
-    menuIcon
+    menuIcon,
+    searchIcon
 }

@@ -6,6 +6,7 @@ import { ServicesByRole } from "./Services";
 import ServicePage from "./ServicePage";
 import ServiceProviderPage from "./ServiceProviderPage";
 import Profile from "./Profile";
+import Search from "./Search";
 
 export {
     Home,
@@ -15,5 +16,6 @@ export {
     ServicesByRole,
     ServicePage,
     ServiceProviderPage,
-    Profile
+    Profile,
+    Search
 }
