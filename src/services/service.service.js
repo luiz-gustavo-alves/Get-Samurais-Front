@@ -1,12 +1,23 @@
 import API from "./api";
-import { createConfig } from "./api";
 
-function getServices () {
-    return API.get("/services");
+function getServices (offset) {
+
+    if (offset === 0) {
+        return API.get("/services");
+
+    } else {
+        return API.get(`/services?offset=${offset}`);
+    }
 }
 
-function getServicesByRole (role) {
-    return API.get(`/services/roles/${role}`);
+function getServicesByRole (role, offset) {
+
+    if (offset == 0) {
+        return API.get(`/services/roles/${role}`);
+
+    } else {
+        return API.get(`/services/roles/${role}?offset=${offset}`)
+    }
 }
 
 function getServiceById (id) {

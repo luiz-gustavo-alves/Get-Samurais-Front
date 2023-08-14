@@ -156,7 +156,7 @@ export default function ServiceProviderRegister() {
             />
           </Content>
           <Content>
-            <Label>City</Label>
+            <Label>Cidade</Label>
             <Input
               type="text"
               name="city"

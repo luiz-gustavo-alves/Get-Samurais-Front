@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+const ServiceContainer = styled.div`
 
     padding-top: 100px;
     padding-bottom: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 `;
 
-export {
-    Container
-};
+export default ServiceContainer;

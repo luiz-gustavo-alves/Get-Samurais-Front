@@ -43,6 +43,8 @@ export default function ServiceProviderPage() {
     return <h1>Carregando...</h1>
   }
 
+  console.log(serviceProviderData);
+
   return (
     <>
       <Container showAddOption={showAddOption} >
@@ -54,7 +56,7 @@ export default function ServiceProviderPage() {
           <img src={addIcon} onClick={() => setShowAddOption(true)}/>
         </CreateServiceContainer>
         <Content 
-          servicesData={serviceProviderData} 
+          servicesData={serviceProviderData.data} 
           showOptions={true} 
           setShowOptions={setShowOptions}
         />

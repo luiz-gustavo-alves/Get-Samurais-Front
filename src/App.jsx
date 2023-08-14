@@ -8,14 +8,16 @@ import {
   Home,
   Login,
   Register,
-  Services,
+  RecentServices,
+  ServicesByRole,
   ServicePage,
   ServiceProviderPage,
-  Profile
+  Profile,
 } from "./pages";
 
 import {
-  AuthProvider
+  AuthProvider,
+  OffsetProvider
 } from "./contexts";
 
 import Header from "./components/Header";
@@ -39,19 +41,21 @@ export default function App() {
   return (
     <>
       <AuthProvider>
-        <Header />
-        { showBanner(pathname) && <Banner /> }
-        <Routes>
-          <Route path="/profile/service-provider/:id" element={<Profile />}></Route>
-          <Route path="/profile/me" element={<Profile />}></Route>
-          <Route path="/service/:id" element={<ServicePage />}></Route>
-          <Route path="/services/me" element={<ServiceProviderPage />}></Route>
-          <Route path="/services/:role" element={<Services />}></Route>
-          <Route path="/services" element={<Services />}></Route>
-          <Route path="/signin" element={<Login />}></Route>
-          <Route path="/signup" element={<Register />}></Route>
-          <Route path="/" element={<Home />}></Route>
-        </Routes>
+        <OffsetProvider>
+          <Header />
+          { showBanner(pathname) && <Banner /> }
+          <Routes>
+            <Route path="/profile/service-provider/:id" element={<Profile />}></Route>
+            <Route path="/profile/me" element={<Profile />}></Route>
+            <Route path="/service/:id" element={<ServicePage />}></Route>
+            <Route path="/services/me" element={<ServiceProviderPage />}></Route>
+            <Route path="/services/:role" element={<ServicesByRole />}></Route>
+            <Route path="/services" element={<RecentServices />}></Route>
+            <Route path="/signin" element={<Login />}></Route>
+            <Route path="/signup" element={<Register />}></Route>
+            <Route path="/" element={<Home />}></Route>
+          </Routes>
+        </OffsetProvider>
       </AuthProvider>
     </>
   );
