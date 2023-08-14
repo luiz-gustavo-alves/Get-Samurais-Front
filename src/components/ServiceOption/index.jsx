@@ -16,7 +16,7 @@ import {
 import { useEffect, useState } from 'react';
 import serviceProviderService from "../../services/serviceProvider.service";
 
-export default function ServiceOption({ option, serviceData, setShowOption, setOption, token }) {
+export default function ServiceOption({ option, serviceData, setShowOption, token }) {
 
   const [serviceForm, setServiceForm] = useState({
     title: "",
@@ -77,7 +77,7 @@ export default function ServiceOption({ option, serviceData, setShowOption, setO
     if (option === "add") {
       
       serviceProviderService.createService({ ...payload }, token)
-        .then(() => setShowOption(false))
+        .then(() => window.location.reload())
         .catch((err) => {
 
           if (err.response.status === 422) {
@@ -92,10 +92,7 @@ export default function ServiceOption({ option, serviceData, setShowOption, setO
     } else if (option ==="update") {
 
       serviceProviderService.updateService({ ...payload }, serviceData.id, token)
-        .then(() => {
-          setShowOption(false);
-          setOption("update");
-        })
+        .then(() => window.location.reload())
         .catch((err) => {
 
           if (err.response.status === 422) {

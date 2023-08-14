@@ -30,7 +30,6 @@ export default function ServiceProviderPage() {
 
   const navigate = useNavigate();
   const [serviceProviderData, setServiceProviderData] = useState(null);
-  const [showOptions, setShowOptions] = useState(true);
   const [showAddOption, setShowAddOption] = useState(false);
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export default function ServiceProviderPage() {
         .catch(() => alert("Erro interno do servidor.\nTente novamente mais tarde!"));
     }
 
-  }, [auth, showOptions, showAddOption, offset]);
+  }, [auth, offset]);
 
   if (serviceProviderData === null) {
     return <h1>Carregando...</h1>
@@ -77,8 +76,7 @@ export default function ServiceProviderPage() {
         </CreateServiceContainer>
         <Content 
           servicesData={serviceProviderData.data} 
-          showOptions={true} 
-          setShowOptions={setShowOptions}
+          showOptions={true}
         />
       </Container>
       {showAddOption &&

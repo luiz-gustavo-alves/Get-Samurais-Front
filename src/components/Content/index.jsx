@@ -21,7 +21,7 @@ import useAuth from "../../hooks/useAuth";
 import roleIconsHashTable from "../../utils/roleIconsHashTable";
 import serviceProviderService from "../../services/serviceProvider.service";
 
-export default function Content ({ servicesData, showOptions, setShowOptions }) {
+export default function Content ({ servicesData, showOptions }) {
 
   const { auth } = useAuth();
 
@@ -49,10 +49,8 @@ export default function Content ({ servicesData, showOptions, setShowOptions }) 
       return;
     }
 
-    setShowOptions("delete");
-
     serviceProviderService.deleteService(id, auth.token)
-      .then(() => setShowOptions(true))
+      .then(() => window.location.reload())
       .catch(err => console.log(err.message));
   }
 
@@ -87,7 +85,6 @@ export default function Content ({ servicesData, showOptions, setShowOptions }) 
           option={"update"} 
           serviceData={updateServiceData}
           setShowOption={setShowUpdateOption}
-          setOption={setShowOptions}
           token={auth.token}
         />
       }
