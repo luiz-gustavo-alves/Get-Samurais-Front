@@ -14,6 +14,14 @@ import {
   addIcon 
 } from '../../assets/images/Icons';
 
+import {
+  CenterLoader
+} from "../../components/Loaders";
+
+import { 
+  Oval 
+} from "react-loader-spinner";
+
 import Content from "../../components/Content";
 import ServiceOption from "../../components/ServiceOption";
 
@@ -61,7 +69,20 @@ export default function ServiceProviderPage() {
   }, [auth, offset]);
 
   if (serviceProviderData === null) {
-    return <h1>Carregando...</h1>
+    return (
+      <CenterLoader>
+        <Oval
+          height="200"
+          width="200"
+          color="#515151"
+          ariaLabel='oval-loading'
+          secondaryColor="#000"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+          visible={true}
+        />
+      </CenterLoader>
+    )
   }
 
   return (

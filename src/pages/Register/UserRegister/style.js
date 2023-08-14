@@ -45,7 +45,14 @@ const Title = styled.h2`
     }
 `;
 
+const FormLoader = styled.div`
+
+    position: absolute;
+    bottom: 80px;
+`;
+
 export {
     Form,
-    Title
+    Title,
+    FormLoader
 }

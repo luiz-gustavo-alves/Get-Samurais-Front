@@ -94,11 +94,19 @@ const DropDownContent = styled.select`
     font-weight: 600;
 `;
 
+const FormLoader = styled.div`
+
+    position: absolute;
+    bottom: 7px;
+    right: 52px;
+`;
+
 export {
     Form,
     Title,
     Label,
     DropDown,
     DropDownValue,
-    DropDownContent
+    DropDownContent,
+    FormLoader
 }

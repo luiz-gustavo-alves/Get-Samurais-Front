@@ -11,8 +11,13 @@ import {
   Label,
   DropDown,
   DropDownValue,
-  DropDownContent
+  DropDownContent,
+  FormLoader
 } from "./style";
+
+import { 
+  ThreeDots 
+} from "react-loader-spinner";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -39,6 +44,7 @@ export default function ServiceProviderRegister() {
 
   const [confirmPassword, setConfirmPassword] = useState("");
   const [nextForm, setNextForm] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const UFs = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 
                'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO','RR', 'SC', 'SP', 'SE', 'TO'];
@@ -64,11 +70,14 @@ export default function ServiceProviderRegister() {
 
   function handleServiceProviderFormSubmit(e) {
     e.preventDefault();
+    setDisabled(true);
     
     const payload = {...userFormData, ...serviceProviderFormData};
     authService.signUpServiceProvider(payload)
       .then(() => navigate("/signin"))
       .catch(err => {
+
+        setDisabled(false);
 
         if (err.response.status === 422) {
           const errors = [...err.response.data];
@@ -199,7 +208,19 @@ export default function ServiceProviderRegister() {
           </Content>
           <Content>
             <Button type="button" onClick={() => setNextForm(false)}>Retornar</Button>
-            <Button type="submit">Cadastrar</Button>
+            <Button type="submit" disabled={disabled}>
+              {disabled ? "" : "Cadastrar"}
+            </Button>
+            <FormLoader>
+              <ThreeDots 
+                width={70} 
+                height={45} 
+                border-radius={4.5}
+                color="#FFF"
+                visible={disabled} 
+                font-size={9} 
+              />
+            </FormLoader>
           </Content>
         </Form>
       )

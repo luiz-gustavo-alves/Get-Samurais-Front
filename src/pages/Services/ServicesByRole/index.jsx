@@ -8,6 +8,14 @@ import {
   OffsetButton
 } from "../../../components/Offset";
 
+import {
+  CenterLoader
+} from "../../../components/Loaders";
+
+import { 
+  Oval 
+} from "react-loader-spinner";
+
 import Content from "../../../components/Content";
 
 import { useEffect, useState } from "react";
@@ -52,7 +60,20 @@ export default function ServicesByRole() {
   }, [role, offset]);
 
   if (servicesData === null) {
-    return <h1>Carregado....</h1>
+    return (
+      <CenterLoader>
+        <Oval
+          height="200"
+          width="200"
+          color="#515151"
+          ariaLabel='oval-loading'
+          secondaryColor="#000"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+          visible={true}
+        />
+      </CenterLoader>
+    )
   }
 
   return (

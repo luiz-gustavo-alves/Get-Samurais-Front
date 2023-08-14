@@ -19,6 +19,14 @@ import {
   bambooHatIcon
 } from "../../assets/images/Icons";
 
+import {
+  CenterLoader
+} from "../../components/Loaders";
+
+import { 
+  Oval 
+} from "react-loader-spinner";
+
 import Content from "../../components/Content";
 
 import { useEffect, useState } from "react";
@@ -104,7 +112,20 @@ export default function Profile() {
   }, [pathname, offset]);
 
   if (profileData === null) {
-    return <h1>Carregando...</h1>
+    return (
+      <CenterLoader>
+        <Oval
+          height="200"
+          width="200"
+          color="#515151"
+          ariaLabel='oval-loading'
+          secondaryColor="#000"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+          visible={true}
+        />
+      </CenterLoader>
+    )
   }
 
   const setServiceContent = () => {

@@ -13,6 +13,14 @@ import {
   OptionButton
 } from "./style";
 
+import {
+  CenterLoader
+} from "../../components/Loaders";
+
+import { 
+  Oval 
+} from "react-loader-spinner";
+
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
@@ -46,7 +54,20 @@ export default function ServicePage() {
   }, []);
 
   if (serviceData === null) {
-    return <h1>Carregando...</h1>
+    return (
+      <CenterLoader>
+        <Oval
+          height="200"
+          width="200"
+          color="#515151"
+          ariaLabel='oval-loading'
+          secondaryColor="#000"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+          visible={true}
+        />
+      </CenterLoader>
+    )
   }
 
   const formatCellphoneNumber = (cellphoneNumber) => {

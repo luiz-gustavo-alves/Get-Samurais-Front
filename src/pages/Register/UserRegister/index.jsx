@@ -8,8 +8,13 @@ import {
 
 import {
   Form,
-  Title
+  Title,
+  FormLoader
 } from "./style";
+
+import { 
+  ThreeDots 
+} from "react-loader-spinner";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +30,7 @@ export default function UserRegister() {
     password: "",
   });
 
+  const [disabled, setDisabled] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
 
   function handleChange(e) {
@@ -33,6 +39,7 @@ export default function UserRegister() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setDisabled(true);
 
     if (formData.password !== confirmPassword) {
       alert("Senhas fornecidas não coincidem!");
@@ -42,6 +49,8 @@ export default function UserRegister() {
     authService.signUpUser({...formData})
       .then(() => navigate("/signin"))
       .catch(err => {
+
+        setDisabled(false);
 
         if (err.request.status === 401) {
           alert(err.response.data)
@@ -99,7 +108,19 @@ export default function UserRegister() {
             required
           />
         </Content>
-        <Button type="submit">Cadastrar</Button>
+        <Button type="submit" disabled={disabled}>
+          {disabled ? "" : "Cadastrar"}
+        </Button>
+        <FormLoader>
+          <ThreeDots 
+            width={70} 
+            height={45} 
+            border-radius={4.5}
+            color="#FFF"
+            visible={disabled} 
+            font-size={9} 
+          />
+        </FormLoader>
       </Form>
     </Container>
   )
